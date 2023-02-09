@@ -10,6 +10,7 @@ library("ggplot2")
 office_df <- read.csv("https://raw.githubusercontent.com/melaniewalsh/Neat-Datasets/main/TheOfficeIMDBPerEpisode.csv", stringsAsFactors = FALSE)
 # convert column to date format
 office_df$AirDate<- as.Date(office_df$AirDate)
+
 # What is the episode(s) with the highest IMDB rating in the dataset?
 # Filter the data and save the row(s) as highest_rating_rows
 highest_rating_rows <- office_df %>% 
@@ -17,6 +18,7 @@ highest_rating_rows <- office_df %>%
 my_highest_rating_rows <- office_df %>% 
   group_by(Title) %>% 
   summarize(list_of_ratings = max(Rating, na.rm = TRUE))
+
 # What is the episode(s) with the lowest IMDB rating in the dataset?
 # Filter the data and save the row(s) as lowest_rating_rows
 lowest_rating_rows <- office_df %>% 
